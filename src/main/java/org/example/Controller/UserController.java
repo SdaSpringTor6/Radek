@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
     @Autowired
     UserDAO userDAO;
-    @Autowired
-    OrderDAO orderDAO;
+
 
     @RequestMapping("main")
     public String mainPage(Model model) {
@@ -39,11 +38,7 @@ public class UserController {
         user.setId(userDAO.getUsers().size());
         return "index";
     }
-    @RequestMapping("orders")
-    public String orderPage (Model model) {
-        model.addAttribute("orders",orderDAO.getOrders());
-        return "orders";
-    }
+
 
 
 }

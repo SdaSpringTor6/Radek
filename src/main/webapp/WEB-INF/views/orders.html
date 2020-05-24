@@ -27,7 +27,7 @@
         <tr th:each="order:${orders}">
             <td><span th:text="${order.ID}">id</span></td>
             <td><span th:text="${order.price}">price</span></td>
-            <td><span th:text="${order.user.first_name}">user</span></td>
+            <td><span th:text="${order.user.first_name}+' '+${order.user.last_name}">user</span></td>
 
         </tr>
         </tbody>
