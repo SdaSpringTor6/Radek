@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Spring MVC CRUD</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+    <link href="../static/css/spring-core.css"
+          th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th><span th:text="#{label.ID}">ID</span></th>
+            <th><span th:text="#{label.firstName}">First name</span></th>
+            <th><span th:text="#{label.lastName}">Last name</span></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${user != null}">
+            <td><span th:text="${user.id}">id</span></td>
+            <td><span th:text="${user.first_name}">first_name</span></td>
+            <td><span th:text="${user.last_name}">last_name</span></td>
+        </tr>
+        <tr th:unless="${user == null}" th:each="user:${users}">
+
+            <td><span th:text="${user.id}">id</span></td>
+            <td><span th:text="${user.first_name}">first_name</span></td>
+            <td><span th:text="${user.last_name}">last_name</span></td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="post" class="btn btn-success">Post Example</a>
+    <a href="orders" class="btn btn-success">Orders</a>
+</div>
+</body>
+</html>
